@@ -2,6 +2,7 @@ const express = require('express');
 const user = require('../routes/auth');
 // 데이터 값 연결 user.nick과 user.email로 로그인한 사용자 데이터 불러오기 가능
 const post = require('../models/post');
+const wdb = require('../models/wdb');
 //const jowon = require('../models/jowon');
 const { User } = require('../models');
 
@@ -18,10 +19,24 @@ router.get('/QnA/write' ,(req,res)=>{
   res.render('write');
 })
 
+router.get('/introduction',(req,res)=>{
+  res.render('introduction')
+})
+
+router.post('/introduction', async(req,res)=> {
+  var id =req.body.id;
+  await wdb.findOne({raw : true})
+  .then((result) =>{
+    var data  = result.humanaim + result.tc + result.part;
+    console.log(data);
+    res.send(data1,data2,data3);
+  })
+
+})
 
 // jowon db id pk, name, email......
 router.get('/Teammates', (req,res) =>{
-  res.render('Teammates');
+  res.render('Teammates');  
 })
 
 router.post('/Teammates', async(req,res)=> {
@@ -68,3 +83,6 @@ router.post('/QnA/write' , async (req,res)=>{  //insert
 });
 
   module.exports = router;
+
+
+   
