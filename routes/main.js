@@ -27,9 +27,9 @@ router.post('/introduction', async(req,res)=> {
   var id =req.body.id;
   await wdb.findOne({raw : true})
   .then((result) =>{
-    var data  = result.humanaim + result.tc + result.part;
-    console.log(data);
-    res.send(data1,data2,data3);
+    var data = [result.humanaim, result.tc, result.part];
+    // console.log(data[2]);
+    res.send(data);
   })
 
 })
