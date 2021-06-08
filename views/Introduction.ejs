@@ -60,18 +60,20 @@
          </nav>   
          <!-- index -->
          <section id="main-section">
-            <article>
-                <div class="article-header" id ="page" name="page">
+            
+                
                     
-                    <button id = '1' onclick='a(this.id)'>wdb</button>
+                <button id = '1' onclick='a(this.id)'>wdb</button>
                     <h2>인력양성</h2>
                     <p id='11'>바뀌기전</p>
                     <h2>교욱과정</h2>
                     <p id='12'>바뀌기전</p>
-
+                    <h2>분야</h2>
+                    <p id='13'>바뀌기전</p>
+                
         
-                </div>
-            </article>
+                
+            
          </section>
          <hr>
 
@@ -112,9 +114,13 @@
                 }
             }).then( (res) => {
                 var id2 =id +1;
+                var id3 =id +2;
+                var id4 =id +3;
                 console.log(document.getElementById(id2).value);
-                console.log(res.data);
-                document.getElementById(id2).innerHTML = res.data;
+                console.log(res.data[0]);
+                document.getElementById(id2).innerHTML = res.data[0];
+                document.getElementById(id3).innerHTML = res.data[1];
+                document.getElementById(id4).innerHTML = res.data[2];
             })
             .catch((err)=> {
                 console.error(err);
